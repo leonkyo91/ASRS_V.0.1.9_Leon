@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4CABBC3C-689C-424B-90E6-AAF20205A2C7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASRS</RootNamespace>
+    <AssemblyName>ASRS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Project\中科矽品ASRS\ASRS\AP\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\10.7.3.144\d%24\Mirle\AP\</InstallUrl>
+    <MinimumRequiredVersion>1.0.0.1</MinimumRequiredVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F8F9D9E171499DDE7F8F977FD5BEA19DAD7D608A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ASRS_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHelp.Designer.cs">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHelp2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHelp2.Designer.cs">
+      <DependentUpon>frmHelp2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHelp_CmdTrace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHelp_CmdTrace.Designer.cs">
+      <DependentUpon>frmHelp_CmdTrace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHelp_PRT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHelp_PRT.Designer.cs">
+      <DependentUpon>frmHelp_PRT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTest1.Designer.cs">
+      <DependentUpon>frmTest1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTest2.Designer.cs">
+      <DependentUpon>frmTest2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTest3.Designer.cs">
+      <DependentUpon>frmTest3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestA.Designer.cs">
+      <DependentUpon>frmTestA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CYCLE\frm_LOC_CYCLE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CYCLE\frm_LOC_CYCLE.Designer.cs">
+      <DependentUpon>frm_LOC_CYCLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CYCLE\frm_ITEM_CYCLE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CYCLE\frm_ITEM_CYCLE.Designer.cs">
+      <DependentUpon>frm_ITEM_CYCLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE.Designer.cs">
+      <DependentUpon>frm_CYCLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_CHECK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_CHECK.Designer.cs">
+      <DependentUpon>frm_CYCLE_CHECK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_REPORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_REPORT.Designer.cs">
+      <DependentUpon>frm_CYCLE_REPORT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_REPORT2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_REPORT2.Designer.cs">
+      <DependentUpon>frm_CYCLE_REPORT2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_ADJUST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_ADJUST.Designer.cs">
+      <DependentUpon>frm_CYCLE_ADJUST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_ADJUST_SCHE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_ADJUST_SCHE.Designer.cs">
+      <DependentUpon>frm_CYCLE_ADJUST_SCHE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_ADJUST_STOP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CYCLE\frm_CYCLE_ADJUST_STOP.Designer.cs">
+      <DependentUpon>frm_CYCLE_ADJUST_STOP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\frm_LOC_R2R.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\frm_LOC_R2R.Designer.cs">
+      <DependentUpon>frm_LOC_R2R.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\frm_LOC_MAINTAIN_Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain\frm_LOC_MAINTAIN_Help.designer.cs">
+      <DependentUpon>frm_LOC_MAINTAIN_Help.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_WMS_Cycle_Loc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_WMS_Cycle_Loc.Designer.cs">
+      <DependentUpon>frm_WMS_Cycle_Loc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_IQC_LOGIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_IQC_LOGIN.Designer.cs">
+      <DependentUpon>frm_WMS_IQC_LOGIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_IN_IQC_Receive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_IN_IQC_Receive.Designer.cs">
+      <DependentUpon>frm_WMS_STK_IN_IQC_Receive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_OFFLINE_IN_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_OFFLINE_IN_1.Designer.cs">
+      <DependentUpon>frm_ASRS_OFFLINE_IN_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_OUT_Receive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_OUT_Receive.Designer.cs">
+      <DependentUpon>frm_WMS_STK_OUT_Receive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\MsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\MsgBox.designer.cs">
+      <DependentUpon>MsgBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\frm_STOCK_OFFLINE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\frm_STOCK_OFFLINE.Designer.cs">
+      <DependentUpon>frm_STOCK_OFFLINE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\frm_OFFLINE_DATA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\frm_OFFLINE_DATA.Designer.cs">
+      <DependentUpon>frm_OFFLINE_DATA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\frm_LOC_MAINTAIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain\frm_LOC_MAINTAIN.Designer.cs">
+      <DependentUpon>frm_LOC_MAINTAIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\frm_LOC_STS_MAINTAIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain\frm_LOC_STS_MAINTAIN.Designer.cs">
+      <DependentUpon>frm_LOC_STS_MAINTAIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\frm_WMS_LOC_MAPPING.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain\frm_WMS_LOC_MAPPING.Designer.cs">
+      <DependentUpon>frm_WMS_LOC_MAPPING.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\frm_LOC_STYLE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain\frm_LOC_STYLE.Designer.cs">
+      <DependentUpon>frm_LOC_STYLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\frm_USER.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain\frm_USER.Designer.cs">
+      <DependentUpon>frm_USER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\frm_CMD_MAINTAIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain\frm_CMD_MAINTAIN.Designer.cs">
+      <DependentUpon>frm_CMD_MAINTAIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\frm_IQC_DATA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\frm_IQC_DATA.Designer.cs">
+      <DependentUpon>frm_IQC_DATA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\frm_ASRS_LOG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\frm_ASRS_LOG.Designer.cs">
+      <DependentUpon>frm_ASRS_LOG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\frm_CMD_STN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\frm_CMD_STN.Designer.cs">
+      <DependentUpon>frm_CMD_STN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\frm_CMD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\frm_CMD.Designer.cs">
+      <DependentUpon>frm_CMD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\frm_STOCK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\frm_STOCK.Designer.cs">
+      <DependentUpon>frm_STOCK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\frm_LOC_DTL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\frm_LOC_DTL.Designer.cs">
+      <DependentUpon>frm_LOC_DTL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\frm_LOC_STS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\frm_LOC_STS.Designer.cs">
+      <DependentUpon>frm_LOC_STS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_STK_OUT_Loc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_STK_OUT_Loc.Designer.cs">
+      <DependentUpon>frm_ASRS_STK_OUT_Loc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_STK_OUT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_STK_OUT.Designer.cs">
+      <DependentUpon>frm_ASRS_STK_OUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_CYCLE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_CYCLE.Designer.cs">
+      <DependentUpon>frm_WMS_CYCLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_IQC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_IQC.Designer.cs">
+      <DependentUpon>frm_WMS_IQC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_OUT_AsrsStkOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_OUT_AsrsStkOut.Designer.cs">
+      <DependentUpon>frm_WMS_STK_OUT_AsrsStkOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_OUT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_OUT.Designer.cs">
+      <DependentUpon>frm_WMS_STK_OUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_IN_Receive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_IN_Receive.Designer.cs">
+      <DependentUpon>frm_WMS_STK_IN_Receive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_IN_EmptyOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_IN_EmptyOut.Designer.cs">
+      <DependentUpon>frm_WMS_STK_IN_EmptyOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_IN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_WMS_STK_IN.Designer.cs">
+      <DependentUpon>frm_WMS_STK_IN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_OFFLINE_OUT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_OFFLINE_OUT.Designer.cs">
+      <DependentUpon>frm_ASRS_OFFLINE_OUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_OFFLINE_IN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_OFFLINE_IN.Designer.cs">
+      <DependentUpon>frm_ASRS_OFFLINE_IN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_EMPTY_OUT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_EMPTY_OUT.Designer.cs">
+      <DependentUpon>frm_ASRS_EMPTY_OUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_EMPTY_IN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_ASRS_EMPTY_IN.Designer.cs">
+      <DependentUpon>frm_ASRS_EMPTY_IN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IObound\frm_RackToRack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IObound\frm_RackToRack.Designer.cs">
+      <DependentUpon>frm_RackToRack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\clsPrinter.cs" />
+    <Compile Include="frmASRS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmASRS.Designer.cs">
+      <DependentUpon>frmASRS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChgPwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChgPwd.Designer.cs">
+      <DependentUpon>frmChgPwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetPC.Designer.cs">
+      <DependentUpon>frmSetPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmToolSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmToolSample.Designer.cs">
+      <DependentUpon>frmToolSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\frm_AUTHORITY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain\frm_AUTHORITY.Designer.cs">
+      <DependentUpon>frm_AUTHORITY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\frm_SYSTEM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain\frm_SYSTEM.Designer.cs">
+      <DependentUpon>frm_SYSTEM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\clsASRS.cs" />
+    <Compile Include="Module\clsDB.cs" />
+    <Compile Include="Module\clsMSG.cs" />
+    <Compile Include="Module\clsParam.cs" />
+    <Compile Include="Module\clsTool.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CYCLE\frm_CYCLE_ADJUST.resx">
+      <DependentUpon>frm_CYCLE_ADJUST.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CYCLE\frm_CYCLE_ADJUST_SCHE.resx">
+      <DependentUpon>frm_CYCLE_ADJUST_SCHE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CYCLE\frm_CYCLE_ADJUST_STOP.resx">
+      <DependentUpon>frm_CYCLE_ADJUST_STOP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CYCLE\frm_CYCLE_REPORT2.resx">
+      <DependentUpon>frm_CYCLE_REPORT2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmASRS.resx">
+      <DependentUpon>frmASRS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChgPwd.resx">
+      <DependentUpon>frmChgPwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHelp.resx">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHelp2.resx">
+      <DependentUpon>frmHelp2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHelp_CmdTrace.resx">
+      <DependentUpon>frmHelp_CmdTrace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHelp_PRT.resx">
+      <DependentUpon>frmHelp_PRT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetPC.resx">
+      <DependentUpon>frmSetPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTest1.resx">
+      <DependentUpon>frmTest1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTest2.resx">
+      <DependentUpon>frmTest2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTest3.resx">
+      <DependentUpon>frmTest3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestA.resx">
+      <DependentUpon>frmTestA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmToolSample.resx">
+      <DependentUpon>frmToolSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CYCLE\frm_LOC_CYCLE.resx">
+      <DependentUpon>frm_LOC_CYCLE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CYCLE\frm_ITEM_CYCLE.resx">
+      <DependentUpon>frm_ITEM_CYCLE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CYCLE\frm_CYCLE.resx">
+      <DependentUpon>frm_CYCLE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CYCLE\frm_CYCLE_CHECK.resx">
+      <DependentUpon>frm_CYCLE_CHECK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CYCLE\frm_CYCLE_REPORT.resx">
+      <DependentUpon>frm_CYCLE_REPORT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\frm_LOC_MAINTAIN_Help.resx">
+      <DependentUpon>frm_LOC_MAINTAIN_Help.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_WMS_Cycle_Loc.resx">
+      <DependentUpon>frm_WMS_Cycle_Loc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_WMS_IQC_LOGIN.resx">
+      <DependentUpon>frm_WMS_IQC_LOGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_WMS_STK_IN_IQC_Receive.resx">
+      <DependentUpon>frm_WMS_STK_IN_IQC_Receive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_ASRS_OFFLINE_IN_1.resx">
+      <DependentUpon>frm_ASRS_OFFLINE_IN_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_WMS_STK_OUT_Receive.resx">
+      <DependentUpon>frm_WMS_STK_OUT_Receive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\MsgBox.resx">
+      <DependentUpon>MsgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\frm_LOC_R2R.resx">
+      <DependentUpon>frm_LOC_R2R.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\frm_STOCK_OFFLINE.resx">
+      <DependentUpon>frm_STOCK_OFFLINE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\frm_OFFLINE_DATA.resx">
+      <DependentUpon>frm_OFFLINE_DATA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\frm_LOC_MAINTAIN.resx">
+      <DependentUpon>frm_LOC_MAINTAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\frm_LOC_STS_MAINTAIN.resx">
+      <DependentUpon>frm_LOC_STS_MAINTAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\frm_WMS_LOC_MAPPING.resx">
+      <DependentUpon>frm_WMS_LOC_MAPPING.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\frm_LOC_STYLE.resx">
+      <DependentUpon>frm_LOC_STYLE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\frm_USER.resx">
+      <DependentUpon>frm_USER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\frm_CMD_MAINTAIN.resx">
+      <DependentUpon>frm_CMD_MAINTAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\frm_IQC_DATA.resx">
+      <DependentUpon>frm_IQC_DATA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\frm_ASRS_LOG.resx">
+      <DependentUpon>frm_ASRS_LOG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\frm_CMD_STN.resx">
+      <DependentUpon>frm_CMD_STN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\frm_CMD.resx">
+      <DependentUpon>frm_CMD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\frm_STOCK.resx">
+      <DependentUpon>frm_STOCK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\frm_LOC_DTL.resx">
+      <DependentUpon>frm_LOC_DTL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\frm_LOC_STS.resx">
+      <DependentUpon>frm_LOC_STS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_ASRS_STK_OUT_Loc.resx">
+      <DependentUpon>frm_ASRS_STK_OUT_Loc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_ASRS_STK_OUT.resx">
+      <DependentUpon>frm_ASRS_STK_OUT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_WMS_CYCLE.resx">
+      <DependentUpon>frm_WMS_CYCLE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_WMS_IQC.resx">
+      <DependentUpon>frm_WMS_IQC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_WMS_STK_OUT_AsrsStkOut.resx">
+      <DependentUpon>frm_WMS_STK_OUT_AsrsStkOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_WMS_STK_OUT.resx">
+      <DependentUpon>frm_WMS_STK_OUT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_WMS_STK_IN_Receive.resx">
+      <DependentUpon>frm_WMS_STK_IN_Receive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_WMS_STK_IN_EmptyOut.resx">
+      <DependentUpon>frm_WMS_STK_IN_EmptyOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_WMS_STK_IN.resx">
+      <DependentUpon>frm_WMS_STK_IN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_ASRS_OFFLINE_OUT.resx">
+      <DependentUpon>frm_ASRS_OFFLINE_OUT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_ASRS_OFFLINE_IN.resx">
+      <DependentUpon>frm_ASRS_OFFLINE_IN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_ASRS_EMPTY_OUT.resx">
+      <DependentUpon>frm_ASRS_EMPTY_OUT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_ASRS_EMPTY_IN.resx">
+      <DependentUpon>frm_ASRS_EMPTY_IN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IObound\frm_RackToRack.resx">
+      <DependentUpon>frm_RackToRack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\frm_AUTHORITY.resx">
+      <DependentUpon>frm_AUTHORITY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\frm_SYSTEM.resx">
+      <DependentUpon>frm_SYSTEM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <Content Include="ASRS.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="ASRS_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ERP\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
