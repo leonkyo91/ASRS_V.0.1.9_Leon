@@ -64,6 +64,7 @@
             // 
             this.mnuMainMenu.BackColor = System.Drawing.Color.LightSteelBlue;
             this.mnuMainMenu.Font = new System.Drawing.Font("細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.mnuMainMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mnuMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniIOBOUND,
             this.mniQuery,
@@ -72,7 +73,8 @@
             this.mniSchedule});
             this.mnuMainMenu.Location = new System.Drawing.Point(0, 0);
             this.mnuMainMenu.Name = "mnuMainMenu";
-            this.mnuMainMenu.Size = new System.Drawing.Size(938, 24);
+            this.mnuMainMenu.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.mnuMainMenu.Size = new System.Drawing.Size(1407, 34);
             this.mnuMainMenu.TabIndex = 1;
             this.mnuMainMenu.Text = "menuStrip1";
             // 
@@ -80,7 +82,7 @@
             // 
             this.mniIOBOUND.Name = "mniIOBOUND";
             this.mniIOBOUND.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
-            this.mniIOBOUND.Size = new System.Drawing.Size(84, 20);
+            this.mniIOBOUND.Size = new System.Drawing.Size(118, 28);
             this.mniIOBOUND.Tag = "";
             this.mniIOBOUND.Text = "設定作業";
             this.mniIOBOUND.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mniIOBOUND_DropDownItemClicked);
@@ -89,7 +91,7 @@
             // 
             this.mniQuery.Name = "mniQuery";
             this.mniQuery.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.mniQuery.Size = new System.Drawing.Size(84, 20);
+            this.mniQuery.Size = new System.Drawing.Size(118, 28);
             this.mniQuery.Text = "查詢作業";
             this.mniQuery.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mniQuery_DropDownItemClicked);
             this.mniQuery.Click += new System.EventHandler(this.mniQuery_Click);
@@ -98,7 +100,7 @@
             // 
             this.mniMAINTAIN.Name = "mniMAINTAIN";
             this.mniMAINTAIN.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.M)));
-            this.mniMAINTAIN.Size = new System.Drawing.Size(84, 20);
+            this.mniMAINTAIN.Size = new System.Drawing.Size(118, 28);
             this.mniMAINTAIN.Text = "維護作業";
             this.mniMAINTAIN.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mniMAINTAIN_DropDownItemClicked);
             // 
@@ -106,7 +108,7 @@
             // 
             this.mniCycle.Name = "mniCycle";
             this.mniCycle.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-            this.mniCycle.Size = new System.Drawing.Size(84, 20);
+            this.mniCycle.Size = new System.Drawing.Size(118, 28);
             this.mniCycle.Text = "盤點作業";
             this.mniCycle.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mniCycle_DropDownItemClicked);
             this.mniCycle.Click += new System.EventHandler(this.mniCycle_Click);
@@ -114,7 +116,7 @@
             // mniSchedule
             // 
             this.mniSchedule.Name = "mniSchedule";
-            this.mniSchedule.Size = new System.Drawing.Size(84, 20);
+            this.mniSchedule.Size = new System.Drawing.Size(118, 28);
             this.mniSchedule.Text = "儲位重整";
             this.mniSchedule.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mniSchedule_DropDownItemClicked);
             this.mniSchedule.Click += new System.EventHandler(this.mniSchedule_Click);
@@ -128,9 +130,10 @@
             this.tsbS2,
             this.tsbS_LogOut,
             this.tsbS_ChgPwd});
-            this.tlsUser.Location = new System.Drawing.Point(0, 24);
+            this.tlsUser.Location = new System.Drawing.Point(0, 34);
             this.tlsUser.Name = "tlsUser";
-            this.tlsUser.Size = new System.Drawing.Size(938, 27);
+            this.tlsUser.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.tlsUser.Size = new System.Drawing.Size(1407, 30);
             this.tlsUser.TabIndex = 2;
             this.tlsUser.Text = "toolStrip1";
             // 
@@ -141,7 +144,7 @@
             this.tsbShowMenu.Image = ((System.Drawing.Image)(resources.GetObject("tsbShowMenu.Image")));
             this.tsbShowMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbShowMenu.Name = "tsbShowMenu";
-            this.tsbShowMenu.Size = new System.Drawing.Size(24, 24);
+            this.tsbShowMenu.Size = new System.Drawing.Size(24, 27);
             this.tsbShowMenu.ToolTipText = "自動隱藏";
             this.tsbShowMenu.CheckedChanged += new System.EventHandler(this.tsbShowMenu_CheckedChanged);
             this.tsbShowMenu.Click += new System.EventHandler(this.tsbShowMenu_Click);
@@ -149,14 +152,14 @@
             // tsbS2
             // 
             this.tsbS2.Name = "tsbS2";
-            this.tsbS2.Size = new System.Drawing.Size(6, 27);
+            this.tsbS2.Size = new System.Drawing.Size(6, 30);
             // 
             // tsbS_LogOut
             // 
             this.tsbS_LogOut.Image = ((System.Drawing.Image)(resources.GetObject("tsbS_LogOut.Image")));
             this.tsbS_LogOut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbS_LogOut.Name = "tsbS_LogOut";
-            this.tsbS_LogOut.Size = new System.Drawing.Size(55, 24);
+            this.tsbS_LogOut.Size = new System.Drawing.Size(70, 27);
             this.tsbS_LogOut.Text = "登出";
             this.tsbS_LogOut.Click += new System.EventHandler(this.tsbS_LogOut_Click);
             // 
@@ -165,21 +168,23 @@
             this.tsbS_ChgPwd.Image = ((System.Drawing.Image)(resources.GetObject("tsbS_ChgPwd.Image")));
             this.tsbS_ChgPwd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbS_ChgPwd.Name = "tsbS_ChgPwd";
-            this.tsbS_ChgPwd.Size = new System.Drawing.Size(79, 24);
+            this.tsbS_ChgPwd.Size = new System.Drawing.Size(106, 27);
             this.tsbS_ChgPwd.Text = "密碼修改";
             this.tsbS_ChgPwd.Click += new System.EventHandler(this.tsbS_ChgPwd_Click);
             // 
             // stsTaskbar
             // 
+            this.stsTaskbar.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.stsTaskbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsl1,
             this.tsl2,
             this.tslLoginUser,
             this.tslVersion,
             this.tslDateTime});
-            this.stsTaskbar.Location = new System.Drawing.Point(0, 674);
+            this.stsTaskbar.Location = new System.Drawing.Point(0, 1015);
             this.stsTaskbar.Name = "stsTaskbar";
-            this.stsTaskbar.Size = new System.Drawing.Size(938, 24);
+            this.stsTaskbar.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
+            this.stsTaskbar.Size = new System.Drawing.Size(1407, 32);
             this.stsTaskbar.TabIndex = 3;
             this.stsTaskbar.Text = "statusStrip1";
             // 
@@ -187,38 +192,39 @@
             // 
             this.tsl1.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
             this.tsl1.Name = "tsl1";
-            this.tsl1.Size = new System.Drawing.Size(4, 19);
+            this.tsl1.Size = new System.Drawing.Size(4, 27);
             // 
             // tsl2
             // 
             this.tsl2.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
             this.tsl2.Name = "tsl2";
-            this.tsl2.Size = new System.Drawing.Size(835, 19);
+            this.tsl2.Size = new System.Drawing.Size(1308, 27);
             this.tsl2.Spring = true;
             // 
             // tslLoginUser
             // 
             this.tslLoginUser.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
             this.tslLoginUser.Name = "tslLoginUser";
-            this.tslLoginUser.Size = new System.Drawing.Size(4, 19);
+            this.tslLoginUser.Size = new System.Drawing.Size(4, 27);
             // 
             // tslVersion
             // 
             this.tslVersion.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
             this.tslVersion.Name = "tslVersion";
-            this.tslVersion.Size = new System.Drawing.Size(49, 19);
-            this.tslVersion.Text = "V.0.1.8";
+            this.tslVersion.Size = new System.Drawing.Size(68, 27);
+            this.tslVersion.Text = "V.0.1.9";
             // 
             // tslDateTime
             // 
             this.tslDateTime.Name = "tslDateTime";
-            this.tslDateTime.Size = new System.Drawing.Size(0, 19);
+            this.tslDateTime.Size = new System.Drawing.Size(0, 27);
             // 
             // trvMenu
             // 
             this.trvMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trvMenu.Font = new System.Drawing.Font("細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.trvMenu.Location = new System.Drawing.Point(0, 0);
+            this.trvMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.trvMenu.Name = "trvMenu";
             treeNode1.Name = "IO";
             treeNode1.Text = "設定作業";
@@ -233,7 +239,7 @@
             treeNode2,
             treeNode3,
             treeNode4});
-            this.trvMenu.Size = new System.Drawing.Size(220, 623);
+            this.trvMenu.Size = new System.Drawing.Size(330, 951);
             this.trvMenu.TabIndex = 103;
             this.trvMenu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvMenu_AfterSelect);
             this.trvMenu.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.trvMenu_NodeMouseDoubleClick);
@@ -242,22 +248,24 @@
             // 
             this.panel1.Controls.Add(this.trvMenu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 51);
+            this.panel1.Location = new System.Drawing.Point(0, 64);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 623);
+            this.panel1.Size = new System.Drawing.Size(330, 951);
             this.panel1.TabIndex = 104;
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmASRS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(938, 698);
+            this.ClientSize = new System.Drawing.Size(1407, 1047);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.stsTaskbar);
             this.Controls.Add(this.tlsUser);
@@ -265,6 +273,7 @@
             this.IsMdiContainer = true;
             this.KeyPreview = true;
             this.MainMenuStrip = this.mnuMainMenu;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmASRS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AS/RS";

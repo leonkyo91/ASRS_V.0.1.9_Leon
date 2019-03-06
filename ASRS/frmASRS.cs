@@ -1,6 +1,9 @@
 ﻿//***************************************************************************************
-//V.0.1.0   .修正 儲位狀態查詢 點選儲位顯示資料有誤.              frm_LOC_STS.cs
-//          .WMS出庫時, 藍標長度可能大於FOSB ID.增加判斷條件     frm_WMS_STK_OUT_Receive.cs
+//V.0.1.9	.因應矽品內部管控要求,帳號密碼超過30天,要強制變更密碼
+//V.0.1.9	.修正 自動登初設定秒 -> 分, 矽品要求超過7分自動登出			frmASRS.cs, clsTool.cs
+//V.0.1.9	.ASRS系統安全性補強(密碼複雜度加強、長度要求、不可同舊密碼)	frmChgPwd.cs, frm_USER.cs
+//V.0.1.0   .修正 儲位狀態查詢 點選儲位顯示資料有誤.              		frm_LOC_STS.cs
+//          .WMS出庫時, 藍標長度可能大於FOSB ID.增加判斷條件     		frm_WMS_STK_OUT_Receive.cs
 //          .修改使用者資料清單,增加匯出功能                    frm_USER.cs
 //
 //***************************************************************************************
@@ -18,7 +21,7 @@ using System.Data.Common;
 
 namespace ASRS
 {
-
+    
     public partial class frmASRS : Form
     {
         /// <summary>
@@ -57,11 +60,13 @@ namespace ASRS
 
             try
             {
+                #region 開啟資料庫失敗
                 if (clsDB.FunOpenDB() == false)     // Open Database
                 {
                     clsMSG.ShowErrMsg(clsMSG.MSG.OPEN_DB_NG);
                     Application.Exit();
-                }
+                };
+                #endregion 開啟資料庫失敗
 
                 SubAsrsSetArea();   //判斷是否加入區域電腦
                 SubAsrsLogin();     //登入帳號/密碼
@@ -717,17 +722,18 @@ namespace ASRS
                 {
                     sDTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 }
+                //V 0.1.9
+                //int iTime = clsTool.DateDiff_Seconds(sDTime); // 秒 
+                int iTime = clsTool.DateDiff_Minutes(sDTime);   //分
 
-                int iTime = clsTool.DateDiff_Seconds(sDTime);
-
-                if (iTime > 600)
+                if (iTime >= 7)
                 {
+                    timer1.Stop();
+                    clsMSG.ShowInformationMsg("已自動斷線，請重新登錄!!");
+                    timer1.Start();
                     SubLogInOut();
                 }
-
             }
-
-
         }
 
 
@@ -753,11 +759,7 @@ namespace ASRS
             //MdiParent
             frmP_WMS_STK_OUT_Receive.Show();
             frmP_WMS_STK_OUT_Receive.Focus();
-
-
-           
-
-            
+  
         }
 
         private void tsbS_ChgPwd_Click(object sender, EventArgs e)

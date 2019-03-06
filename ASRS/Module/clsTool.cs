@@ -145,6 +145,7 @@ namespace ASRS
         }
         #endregion
 
+        #region 取得時間差(秒) ->有限制最多取得59秒
         public static int DateDiff_Seconds(string sDate)
         {
             //時間1 – 時間2
@@ -158,6 +159,7 @@ namespace ASRS
                 TimeSpan ts2 = new TimeSpan(System.DateTime.Now.Ticks);
                 TimeSpan ts = ts2.Subtract(ts1).Duration();
                 dateDiff = ts.Seconds;
+                ////dateDiff = ts.Minutes;
                 return dateDiff;
             }
             catch
@@ -165,6 +167,54 @@ namespace ASRS
                 return 0;
             }
         }
+        #endregion
+        #region 取得時間差(分)
+        //V 0.1.9
+        public static int DateDiff_Minutes(string sDate)
+        {
+            //時間1 – 時間2
+            //Ex: (2013-01-01 00:00:00) – (2013-01-01 00:01:00) = -60
+            try
+            {
+                DateTime DateTime1 = Convert.ToDateTime(sDate);
+                int dateDiff = 0;
+
+                TimeSpan ts1 = new TimeSpan(DateTime1.Ticks);
+                TimeSpan ts2 = new TimeSpan(System.DateTime.Now.Ticks);
+                TimeSpan ts = ts2.Subtract(ts1).Duration();
+                dateDiff = ts.Minutes;
+                return dateDiff;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        #endregion
+
+        #region 取得時間差(天)
+        //V 0.1.9
+        public static int DateDiff_Days(string sDate)
+        {
+            //時間1 – 時間2
+            //Ex: (2013-01-01 00:00:00) – (2013-01-01 00:01:00) = -60
+            try
+            {
+                DateTime DateTime1 = Convert.ToDateTime(sDate);
+                int dateDiff = 0;
+
+                TimeSpan ts1 = new TimeSpan(DateTime1.Ticks);
+                TimeSpan ts2 = new TimeSpan(System.DateTime.Now.Ticks);
+                TimeSpan ts = ts2.Subtract(ts1).Duration();
+                dateDiff = ts.Days;
+                return dateDiff;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        #endregion
 
         #region GetDateTime() 取得今天的日期時間 本端電腦時間
         public static string GetDateTime()

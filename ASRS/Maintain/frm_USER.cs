@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.Common;
+using System.Text.RegularExpressions;
+
 
 namespace ASRS
 {
@@ -19,7 +21,9 @@ namespace ASRS
         int iCol_USER_PSWD = 2;
         int iCol_USER_PROGSTYLE = 3;
         int iCol_CODE_NAME = 4;
-        int iCol_Counts = 5;
+        int iCol_USER_LOCK = 5;
+        int iCol_Counts = 6;
+        
         #endregion
 
         public frm_USER()
@@ -58,8 +62,16 @@ namespace ASRS
         private void frm_USER_Load(object sender, EventArgs e)
         {
             GridInit();
+            FormInit();
         }
 
+        //Form Initial
+        private void FormInit()
+        {
+            txtUserID.Text = "";
+            txtUserName.Text = "";
+            txtPassWord.Text = "";
+        }
         private void GridInit()
         {
             GridSysInit(ref Grid1); GridSetRange1(ref Grid1);
@@ -105,7 +117,8 @@ namespace ASRS
             oGrid.Columns[iCol_USER_PSWD].Width = 100; oGrid.Columns[iCol_USER_PSWD].Name = "使用者密碼";
             oGrid.Columns[iCol_USER_PROGSTYLE].Width = 90; oGrid.Columns[iCol_USER_PROGSTYLE].Name = "權限代碼"; oGrid.Columns[iCol_USER_PROGSTYLE].Visible = false;
             oGrid.Columns[iCol_CODE_NAME].Width = 100; oGrid.Columns[iCol_CODE_NAME].Name = "權限等級";
-            
+            oGrid.Columns[iCol_USER_LOCK].Width = 100; oGrid.Columns[iCol_USER_LOCK].Name = "鎖定";
+
             oGrid.RowCount = 0;
         }
 
@@ -115,14 +128,19 @@ namespace ASRS
             RdAdd.Checked = true;
             RdDel.Checked = false;
             RdMo.Checked = false;
+            GridInit();
+            FormInit();
         }
 
         private void FormCls()
         {
             clsTool.finished(this);
+            
             RdAdd.Checked = true;
             RdDel.Checked = false;
             RdMo.Checked = false;
+            GridInit();
+            FormInit();
         }
 
         private void cmdExit_Click(object sender, EventArgs e)
@@ -149,6 +167,10 @@ namespace ASRS
             {
                 SubUpdate();
             }
+            else if (RdUnlock.Checked == true)
+            {
+                SubUnlock();
+            }
 
             //try 
             //{
@@ -167,7 +189,7 @@ namespace ASRS
             //                if (txtUserID.Text == "" || txtUserName.Text == ""||cboProgStytle.Text=="")
             //                {
             //                    throw new Exception("請輸入使用者ID與使用者名稱");
-                                
+
             //                }
             //                strSql = "";
             //                um.CRT_DATE = DateTime.Now.ToShortDateString();
@@ -178,7 +200,7 @@ namespace ASRS
             //                if (!clsDB.FunExecSql(um.getStr_InsertDB(typeof(user_mst))))
             //                    throw new Exception("處理失敗");
             //                throw new Exception("處理成功");
-                            
+
             //            case"RdMo":
             //                if (txtUserID.Text == "" || (txtPassWord.Text == "" && txtUserName.Text == "" && cboProgStytle.Text==""))
             //                    throw new Exception("請輸入使用者id與要修改的值");
@@ -200,7 +222,7 @@ namespace ASRS
             //                if (!clsDB.FunExecSql(strSql))
             //                    throw new Exception("處理失敗");
             //                throw new Exception("處理成功");
-                            
+
             //            case"RdDel":
             //                if (txtUserID.Text == "")
             //                    throw new Exception("請輸入USER_ID");
@@ -208,14 +230,14 @@ namespace ASRS
             //                if (!clsDB.FunExecSql(strSql))
             //                    throw new Exception("處理失敗");
             //                throw new Exception("處理成功");
-                            
+
             //        }
             //    }
 
 
             //}
             //catch (Exception ex) { MessageBox.Show(ex.Message); }
- 
+
         }
 
 
@@ -236,6 +258,14 @@ namespace ASRS
             if (txtPassWord.Text == "")
             {
                 clsMSG.ShowWarningMsg("請輸入使用者密碼");
+                return;
+            }
+            Regex regex = new Regex(@"^(?=.*\d)(?=.*[a-zA-Z])(?=.*\W).{8,12}$");
+            
+            bool bflag= regex.IsMatch(txtPassWord.Text) ? true  : false ;
+            if (bflag == false)
+            {
+                clsMSG.ShowWarningMsg("密碼規則不符,需要長度8~12碼,大小寫英字,數字,特殊字元");
                 return;
             }
             if (cboProgStytle.Text == "")
@@ -260,7 +290,7 @@ namespace ASRS
             }
 
 
-            strSql = "INSERT INTO USER_MST(USER_ID,USER_NAME,USER_PSWD,WORK_AREA,CRT_DATE,TRN_USER,TRN_DATE,LOGIN_TM,LOGOUT_TM,PROGSTYLE) VALUES (";
+            strSql = "INSERT INTO USER_MST(USER_ID,USER_NAME,USER_PSWD,WORK_AREA,CRT_DATE,TRN_USER,TRN_DATE,LOGIN_TM,LOGOUT_TM,PROGSTYLE,ERROR_COUNT,LOCK) VALUES (";
             strSql = strSql + "'" + txtUserID.Text + "',";
             strSql = strSql + "'" + txtUserName.Text + "',";
             strSql = strSql + "'" + txtPassWord.Text + "',";
@@ -270,7 +300,9 @@ namespace ASRS
             strSql = strSql + "' ',";
             strSql = strSql + "' ',";
             strSql = strSql + "' ',";
-            strSql = strSql + "'" + clsTool.FunGetComineData(cboProgStytle.Text) + "') ";
+            strSql = strSql + "'" + clsTool.FunGetComineData(cboProgStytle.Text) +  "',";
+            strSql = strSql + "' ',";
+            strSql = strSql + "' ') ";
             if (clsDB.FunExecSql(strSql) == true)
             {
                 clsMSG.ShowInformationMsg(clsMSG.MSG.ADD_OK);
@@ -354,6 +386,15 @@ namespace ASRS
                 clsMSG.ShowWarningMsg("請輸入使用者密碼");
                 return;
             }
+            Regex regex = new Regex(@"^(?=.*\d)(?=.*[a-zA-Z])(?=.*\W).{8,12}$");
+
+            bool bflag = regex.IsMatch(txtPassWord.Text) ? true : false;
+            if (bflag == false)
+            {
+                clsMSG.ShowWarningMsg("密碼規則不符,需要長度最少8碼,大小寫英字,數字,特殊字元");
+                return;
+            }
+            
             if (cboProgStytle.Text == "")
             {
                 clsMSG.ShowWarningMsg("請輸入權限等級");
@@ -379,6 +420,23 @@ namespace ASRS
                 clsDB.FunClsDB();
                 return;
             }
+            #region 檢查新密碼是否與舊密碼相同
+            int iCant = 0;
+            strSql = "SELECT count(USER_ID) FROM USER_MST WHERE USER_ID = '" + txtUserID.Text + "' AND USER_PSWD = '" + txtPassWord.Text + "' ";
+            if (clsDB.FunRsSql(strSql, ref dbRS))
+            {
+                while (dbRS.Read())
+                {
+                    iCant = clsTool.INT(dbRS[0].ToString());
+                }
+                dbRS.Close();
+                if (iCant > 0)
+                {
+                	clsMSG.ShowWarningMsg("新舊密碼不可相同!!");
+                    return;
+                }
+            }
+            #endregion
 
             strSql = "UPDATE USER_MST SET ";
             strSql = strSql + "USER_NAME = '" + txtUserName.Text + "',";
@@ -403,6 +461,61 @@ namespace ASRS
 
         }
 
+        private void SubUnlock()
+        {
+            string strSql = ""; DbDataReader dbRS = null;
+
+            if (txtUserID.Text == "")
+            {
+                clsMSG.ShowWarningMsg("請輸入使用者卡號");
+                return;
+            }
+
+            if (clsDB.FunOpenDB() == false) { clsMSG.ShowErrMsg(clsMSG.MSG.OPEN_DB_NG); return; };
+
+            bool bFlag = false;
+            strSql = "SELECT * FROM USER_MST WHERE USER_ID = '" + txtUserID.Text + "' ";
+            if (clsDB.FunRsSql(strSql, ref dbRS))
+            {
+                while (dbRS.Read())
+                {
+                    bFlag = true;
+                }
+                dbRS.Close();
+            }
+
+            if (bFlag == false)
+            {
+                clsMSG.ShowWarningMsg("查無使用者卡號!!");
+                clsDB.FunClsDB();
+                return;
+            }
+
+            strSql = "DELETE FROM USER_MST WHERE USER_ID = '" + txtUserID.Text + "' ";
+
+            strSql = "UPDATE USER_MST SET ";
+            strSql = strSql + "PSWD_ERR_CNT = '0',";
+            strSql = strSql + "LOCK = '0',";
+            strSql = strSql + "LOGIN_FAIL_TM = ' ' ";
+            strSql = strSql + "WHERE USER_ID = '" + txtUserID.Text + "' ";
+
+            if (clsDB.FunExecSql(strSql) == true)
+            {
+                clsMSG.ShowInformationMsg("帳號 " + txtUserID.Text + " 已解除鎖定。");
+                //clsMSG.ShowInformationMsg(clsMSG.MSG.DELETE_OK);
+            }
+            else
+            {
+                clsMSG.ShowWarningMsg(clsMSG.MSG.Msg_Run_Error);
+            }
+
+            clsDB.FunClsDB();
+
+            FormCls();
+
+            Query();
+        }
+
         private void txtUserID_TextChanged(object sender, EventArgs e)
         {
 
@@ -422,7 +535,7 @@ namespace ASRS
                     while (dbRS.Read())
                     {
                         txtUserName.Text = dbRS["USER_NAME"].ToString();
-                        txtPassWord.Text = dbRS["USER_PSWD"].ToString();
+                        //txtPassWord.Text = dbRS["USER_PSWD"].ToString();
                         sProgStytle= dbRS["PROGSTYLE"].ToString();
                     }
                     dbRS.Close();
@@ -460,7 +573,7 @@ namespace ASRS
 
             if (clsDB.FunOpenDB() == false) { clsMSG.ShowErrMsg(clsMSG.MSG.OPEN_DB_NG); return; };
 
-            string strSql = "SELECT M.USER_ID,M.USER_NAME,M.USER_PSWD,M.PROGSTYLE,D.CODE_NAME FROM USER_MST M LEFT JOIN CODE_DTL D ";
+            string strSql = "SELECT M.USER_ID,M.USER_NAME,M.USER_PSWD,M.PROGSTYLE,D.CODE_NAME,M.LOCK FROM USER_MST M LEFT JOIN CODE_DTL D ";
             strSql = strSql + "ON M.PROGSTYLE = D.CODE_NO ";
             strSql = strSql + "WHERE D.CODE_TYPE = 'PRIVILEGE' ";
             strSql = strSql + "ORDER BY M.USER_ID ";
@@ -475,9 +588,12 @@ namespace ASRS
                     Grid1.Rows.Add();
                     Grid1[iCol_USER_ID, Grid1.RowCount - 1].Value = dbRS["USER_ID"].ToString();
                     Grid1[iCol_USER_NAME, Grid1.RowCount - 1].Value = dbRS["USER_NAME"].ToString();
-                    Grid1[iCol_USER_PSWD, Grid1.RowCount - 1].Value = dbRS["USER_PSWD"].ToString();
+                    // V.0.1.9 不顯示密碼
+                    //Grid1[iCol_USER_PSWD, Grid1.RowCount - 1].Value = dbRS["USER_PSWD"].ToString();
+                    Grid1[iCol_USER_PSWD, Grid1.RowCount - 1].Value = "********";
                     Grid1[iCol_USER_PROGSTYLE, Grid1.RowCount - 1].Value = dbRS["PROGSTYLE"].ToString();
                     Grid1[iCol_CODE_NAME, Grid1.RowCount - 1].Value = dbRS["CODE_NAME"].ToString();
+                    Grid1[iCol_USER_LOCK, Grid1.RowCount - 1].Value = dbRS["LOCK"].ToString();
                 }
                 dbRS.Close();
 

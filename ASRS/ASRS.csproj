@@ -53,10 +53,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>F8F9D9E171499DDE7F8F977FD5BEA19DAD7D608A</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>42DB9A3E5A5494D9AE000D87263A1BACC18FD818</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ASRS_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>ASRS_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -648,6 +648,7 @@
     <Content Include="ASRS.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="ASRS_1_TemporaryKey.pfx" />
     <None Include="ASRS_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
