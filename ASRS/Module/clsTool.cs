@@ -192,6 +192,30 @@ namespace ASRS
         }
         #endregion
 
+        #region 取得時間差(時)
+        //V 0.1.9
+        public static int DateDiff_Hours(string sDate)
+        {
+            //時間1 – 時間2
+            //Ex: (2013-01-01 00:00:00) – (2013-01-01 00:01:00) = -60
+            try
+            {
+                DateTime DateTime1 = Convert.ToDateTime(sDate);
+                int dateDiff = 0;
+
+                TimeSpan ts1 = new TimeSpan(DateTime1.Ticks);
+                TimeSpan ts2 = new TimeSpan(System.DateTime.Now.Ticks);
+                TimeSpan ts = ts2.Subtract(ts1).Duration();
+                dateDiff = ts.Hours;
+                return dateDiff;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        #endregion
+
         #region 取得時間差(天)
         //V 0.1.9
         public static int DateDiff_Days(string sDate)

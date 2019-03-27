@@ -73,12 +73,19 @@ namespace ASRS
 
                 //V.0.1.9 登入錯誤帳號鎖定機制
                 //計算目前時間與上次登入錯誤時間相差多久。
-                int iTime = 0;
+                int iTimeM = 0;
+                int iTimeH = 0;
+                int iTimeD = 0;
                 if (strLoginFailTm.Length != 0)
-                    iTime = clsTool.DateDiff_Minutes(strLoginFailTm);   //分
+                {
+                    iTimeM = clsTool.DateDiff_Minutes(strLoginFailTm);   //分
+                    iTimeH = clsTool.DateDiff_Hours(strLoginFailTm);   //時
+                    iTimeD = clsTool.DateDiff_Days(strLoginFailTm);   //日
+                }
+                    
 
                 // 距離上次登入失敗超過30分鐘，解除鎖定與重置錯誤計數器。
-                if (iTime >= 30)
+                if (iTimeM >= 30 || iTimeH >= 1 || iTimeD >= 1)
                 {
                     strLock = "0";
                     strErrCnt = "0";
@@ -87,7 +94,7 @@ namespace ASRS
                 //帳號鎖定中
                 if (strLock == "1")
                 {
-                    clsMSG.ShowInformationMsg("帳號已鎖定，請等待 " + (30 - iTime) + " 分鐘後自動解鎖。");
+                    clsMSG.ShowInformationMsg("帳號已鎖定，請等待 " + (30 - iTimeM) + " 分鐘後自動解鎖。");
                     return;
                 }
 
